@@ -25,3 +25,22 @@ Constructors:
 
 There are two constructors. The first one (without arguments) is generated automatically by @NoArgsConstructor. The second one (with arguments) is a custom constructor that takes in various values and sets the corresponding fields of a "Movie" object.
 Overall, this code defines a class called "Movie" that represents movie information. It includes fields for various attributes of a movie, such as its title, release date, and more. This class can be used to create instances representing different movies in a program, and these instances can then be stored in a database collection for further use.
+
+## MovieController
+This code is about creating a part of a web application that handles movie-related information. Let's break it down:
+
+@RestController: This is like a special tag that tells the program that this class is in charge of handling incoming requests from a web client (like a browser or a mobile app). It's responsible for providing responses to these requests.
+
+@RequestMapping("api/v1/movies"): This is another special tag that sets up a specific URL path, or endpoint, where the requests related to movies will be directed. In this case, the endpoint is "api/v1/movies", meaning that when someone sends a request to this URL, it will be handled by the methods in this class.
+
+public class MovieController: This is the actual class that defines the behavior of handling movie-related requests.
+
+public ResponseEntity<String> allmovies(): This is a method (or function) named allmovies that will be executed when someone sends a request to the specified endpoint. Here's what this method does:
+
+It returns an instance of ResponseEntity<String>, which is like a package containing the response that will be sent back to the requester.
+ResponseEntity is a way to customize the response with a specific HTTP status code (like OK, NOT FOUND, etc.), headers, and a response body.
+<String> after ResponseEntity indicates that the response body will be of type String.
+The response body in this case is simply the text "All Movies".
+return new ResponseEntity<String>("All Movies", HttpStatus.OK);: This line creates a new instance of ResponseEntity containing the string "All Movies" as the response body. It also sets the HTTP status code to OK (which means everything is okay).
+
+In a nutshell, this code sets up a controller for a web application that handles movie-related requests. When someone accesses the URL "api/v1/movies", the allmovies method is triggered, and it responds with a simple message "All Movies" along with an HTTP status code of OK. This is a basic example, and in a real application, the controller would likely interact with a database to fetch actual movie data and send it back as a response.
