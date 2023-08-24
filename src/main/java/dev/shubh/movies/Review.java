@@ -25,4 +25,8 @@ public class Review {
         this.created = created;
         this.updated = updated;
     }
+
+    public Review(String body) {
+        this.body = body;
+    }
 }
